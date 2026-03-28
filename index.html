@@ -269,12 +269,23 @@ footer{background:var(--pur-dark);padding:4rem 2rem 3rem}
   .srv-grid{grid-template-columns:1fr}
   .products-grid{grid-template-columns:1fr 1fr}
   .foot-in{grid-template-columns:1fr}
-  .hero-content{padding:7rem 1.5rem 5rem}
   nav .nav-in{padding:1rem 1.5rem}
-  .hero-bottom-info{padding:0 1.5rem;gap:1.5rem;bottom:1.5rem;row-gap:.8rem}
-  .hero-info-item{min-width:calc(50% - .75rem)}
-  .hero-bottom-info .hero-info-item:last-child{min-width:100%}
+  /* Hero: make bottom-info part of the flow, no absolute overlap */
+  .hero{min-height:100svh;flex-direction:column;justify-content:flex-start}
+  .hero-content{padding:6rem 1.5rem 2rem;flex:none}
+  .hero-bottom-info{
+    position:static;
+    padding:1.5rem;
+    gap:1.2rem;
+    row-gap:1rem;
+    border-top:1px solid rgba(255,255,255,.12);
+    background:rgba(0,0,0,.15);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .hero-info-item{min-width:calc(50% - .6rem)}
   .hero-cta .btn{flex:1 1 auto;text-align:center}
+  .hero-badge-text{font-size:.55rem;letter-spacing:.25em}
   .products-header{flex-direction:column;align-items:flex-start}
   .products-header .sec-p{max-width:100%;text-align:left}
   .cta-btns .btn{flex:1 1 auto;text-align:center}
