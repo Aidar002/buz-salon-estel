@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESTEL&CO — Салон красоты | Бузулук</title>
+<meta name="description" content="ESTEL&CO — салон красоты в Бузулуке. Стрижки, окрашивание, маникюр, педикюр. Официальный дилер Estel Professional. 2 микрорайон, д. 32. Тел: 8 (922) 800 89 69">
+<meta name="keywords" content="салон красоты Бузулук, стрижка Бузулук, маникюр Бузулук, окрашивание волос, Estel Professional, ESTEL CO">
+<meta property="og:title" content="ESTEL&CO — Салон красоты | Бузулук">
+<meta property="og:description" content="Профессиональный салон красоты. Стрижки, окрашивание, маникюр, педикюр. Официальный дилер Estel Professional.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pur:#6B1FA0;
+  --pur2:#8B2FC9;
+  --pur3:#A855D8;
+  --pur-dark:#3D0B5E;
+  --pur-light:#C084E8;
+  --pur-pale:#F3E8FF;
+  --pur-bg:#FAF4FF;
+  --white:#FFFFFF;
+  --ink:#1a0a2e;
+  --muted:#7a5a99;
+  --line:rgba(107,31,160,.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--pur-bg);color:var(--ink);font-family:'Montserrat',sans-serif;overflow-x:hidden}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.025;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+
+/* CURSOR — only on true pointer devices */
+@media(pointer:fine){
+  body{cursor:none}
+  .btn,.nav-btn,.srv-card,.prod-card,a,button{cursor:none}
+  .cur{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);width:10px;height:10px;background:var(--pur2);border-radius:50%;transition:width .3s,height .3s,opacity .3s}
+  .cur-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);width:38px;height:38px;border:1.5px solid rgba(107,31,160,.4);border-radius:50%;transition:width .35s,height .35s}
+}
+@media(pointer:coarse){
+  .cur,.cur-ring{display:none}
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;transition:all .4s}
+nav.solid{background:rgba(250,244,255,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav-in{max-width:1200px;margin:0 auto;padding:1.3rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+.logo{text-decoration:none;display:flex;align-items:center;gap:.8rem}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--pur),var(--pur3));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 4px 14px rgba(107,31,160,.35)}
+.logo-text{display:flex;flex-direction:column;gap:.05rem}
+.logo-name{font-size:1.1rem;font-weight:900;color:var(--pur-dark);letter-spacing:.12em;line-height:1}
+.logo-sub{font-size:.5rem;letter-spacing:.45em;text-transform:uppercase;color:var(--muted)}
+nav.solid .logo-name{color:var(--pur-dark)}
+nav:not(.solid) .logo-name{color:#fff}
+nav:not(.solid) .logo-sub{color:rgba(255,255,255,.6)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+nav:not(.solid) .nav-links a{color:rgba(255,255,255,.7)}
+.nav-links a:hover{color:var(--pur)}
+nav:not(.solid) .nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-btn{background:linear-gradient(135deg,var(--pur),var(--pur2));color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.8rem;border-radius:2px;transition:all .3s;box-shadow:0 4px 16px rgba(107,31,160,.3);white-space:nowrap}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(107,31,160,.4)}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;padding:4px;cursor:pointer;z-index:810}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .35s cubic-bezier(.16,1,.3,1);transform-origin:center}
+nav.solid .hamburger span{background:var(--pur-dark)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:799;background:var(--pur-dark);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;padding:2rem}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-size:1.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s;text-align:center}
+.mobile-menu a:hover{color:#fff}
+.mobile-menu .mm-cta{margin-top:1rem;background:linear-gradient(135deg,var(--pur),var(--pur2));color:#fff;font-size:1rem;padding:1rem 3rem;border-radius:2px;font-weight:700;letter-spacing:.2em;box-shadow:0 4px 20px rgba(107,31,160,.4)}
+.mobile-menu .mm-info{margin-top:1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.mobile-menu .mm-info span{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4);letter-spacing:.1em}
+.mobile-menu .mm-info a.mm-phone{font-size:1.3rem;font-weight:700;color:var(--pur-light);text-decoration:none}
+
+/* HERO */
+.hero{min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--pur-dark) 0%,var(--pur) 45%,var(--pur2) 75%,#C56FEA 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.orb1{width:700px;height:700px;background:rgba(168,85,216,.3);top:-200px;right:-200px;animation:orbF 7s ease-in-out infinite}
+.orb2{width:500px;height:500px;background:rgba(61,11,94,.5);bottom:-150px;left:-150px;animation:orbF 9s ease-in-out infinite reverse}
+.orb3{width:400px;height:400px;background:rgba(192,132,232,.2);top:40%;left:40%;animation:orbF 6s ease-in-out infinite 2s}
+@keyframes orbF{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-25px)}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px}
+.deco-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);pointer-events:none}
+.dc1{width:600px;height:600px;top:50%;right:-100px;transform:translateY(-50%)}
+.dc2{width:400px;height:400px;top:50%;right:50px;transform:translateY(-50%)}
+.dc3{width:200px;height:200px;top:20%;left:10%;animation:dcPulse 4s ease-in-out infinite}
+.dc4{width:100px;height:100px;bottom:20%;left:25%;animation:dcPulse 5s ease-in-out infinite 1s}
+@keyframes dcPulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.1);opacity:.8}}
+
+.hero-content{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;justify-content:center;padding:8rem 8vw 6rem;max-width:750px}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:.45rem 1.2rem;border-radius:2px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero-badge-dot{width:6px;height:6px;background:var(--pur-light);border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-badge-text{font-size:.6rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+
+.hero-title{font-family:'Libre Baskerville',serif;font-weight:700;line-height:.92;color:#fff;opacity:0;animation:fadeUp 1.2s .5s cubic-bezier(.16,1,.3,1) forwards}
+.ht1{display:block;font-size:clamp(3.5rem,10vw,8rem);letter-spacing:-.02em}
+.ht2{display:block;font-size:clamp(3.5rem,10vw,8rem);letter-spacing:-.02em;font-style:italic;color:var(--pur-light)}
+.ht-amp{color:rgba(255,255,255,.3);font-style:normal}
+
+.hero-sub{margin-top:2rem;font-size:1rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.9;max-width:480px;opacity:0;animation:fadeUp .8s .9s forwards}
+.hero-sub strong{color:#fff;font-weight:600}
+
+.hero-services-chips{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem;opacity:0;animation:fadeUp .8s 1.1s forwards}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1rem;border-radius:1px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:all .3s}
+.chip:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+
+.hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 1.3s forwards}
+
+.hero-bottom-info{position:absolute;bottom:2.5rem;left:0;right:0;z-index:3;padding:0 8vw;display:flex;gap:3rem;align-items:center;opacity:0;animation:fadeUp .8s 1.6s forwards;flex-wrap:wrap;row-gap:1rem}
+.hero-info-item{display:flex;flex-direction:column;gap:.2rem}
+.hero-info-label{font-size:.55rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-info-val{font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.05em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* BTNS */
+.btn{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;padding:1rem 2.2rem;transition:all .3s;display:inline-block;border-radius:1px;cursor:pointer}
+.btn-white{background:#fff;color:var(--pur)}
+.btn-white:hover{background:var(--pur-pale);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-purple{background:linear-gradient(135deg,var(--pur),var(--pur2));color:#fff;box-shadow:0 4px 20px rgba(107,31,160,.3)}
+.btn-purple:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(107,31,160,.45)}
+.btn-outline-purple{background:transparent;color:var(--pur);border:1.5px solid var(--pur)}
+.btn-outline-purple:hover{background:var(--pur);color:#fff;transform:translateY(-2px)}
+
+/* MARQUEE */
+.marquee{background:#fff;padding:.75rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.mq-track{display:flex;animation:mq 22s linear infinite;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+.mq-item{font-size:.6rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;flex-shrink:0}
+.mq-gem{color:var(--pur3);font-size:.8rem}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding:7rem 2rem}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-label{font-size:.6rem;font-weight:700;letter-spacing:.6em;text-transform:uppercase;color:var(--pur3);display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.sec-label::before{content:'';width:28px;height:2px;background:linear-gradient(to right,var(--pur),var(--pur3))}
+.sec-h{font-family:'Libre Baskerville',serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;color:var(--pur-dark);line-height:1.05}
+.sec-h em{font-style:italic;color:var(--pur2)}
+.sec-p{font-size:.95rem;font-weight:300;color:var(--muted);line-height:1.9}
+
+/* SERVICES */
+.srv-section{background:#fff}
+.srv-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.srv-card{padding:2.5rem;border:1px solid var(--line);background:var(--pur-bg);position:relative;overflow:hidden;transition:all .4s}
+.srv-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,31,160,.06),transparent);opacity:0;transition:opacity .4s}
+.srv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--pur),var(--pur3));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.srv-card:hover{border-color:var(--pur3);transform:translateY(-6px);box-shadow:0 20px 50px rgba(107,31,160,.1)}
+.srv-card:hover::before{opacity:1}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-icon{font-size:2.8rem;margin-bottom:1.5rem;display:block;transition:transform .3s}
+.srv-card:hover .srv-icon{transform:scale(1.1) rotate(-5deg)}
+.srv-title{font-size:1.05rem;font-weight:700;color:var(--pur-dark);margin-bottom:.7rem;letter-spacing:.03em}
+.srv-desc{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.8}
+.srv-badge{display:inline-block;margin-top:1.2rem;background:linear-gradient(135deg,var(--pur),var(--pur2));color:#fff;font-size:.55rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;padding:.3rem .8rem}
+
+/* STATS */
+.stats-band{background:linear-gradient(135deg,var(--pur-dark),var(--pur),var(--pur2));padding:4.5rem 2rem}
+.stats-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-num{font-family:'Libre Baskerville',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:#fff;line-height:1;margin-bottom:.4rem}
+.stat-label{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.5}
+
+/* ABOUT */
+.about-section{background:var(--pur-bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-visual{position:relative}
+.about-big-circle{width:100%;aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--pur-dark),var(--pur2));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-big-circle::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.15),transparent 60%)}
+.about-emoji-big{font-size:clamp(4rem,10vw,8rem);filter:drop-shadow(0 10px 30px rgba(0,0,0,.3));animation:emojiFloat 4s ease-in-out infinite;position:relative;z-index:2}
+@keyframes emojiFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.about-badge-float{position:absolute;bottom:-1rem;right:-1rem;background:#fff;padding:1.2rem;box-shadow:0 8px 30px rgba(107,31,160,.2);border:1px solid var(--line)}
+.about-badge-num{font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--pur);line-height:1}
+.about-badge-text{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+.about-list{list-style:none;display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.about-list li{display:flex;align-items:flex-start;gap:1rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.7}
+.about-list li:last-child{border-bottom:none}
+.about-list .icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.about-list strong{display:block;font-size:.85rem;font-weight:700;color:var(--pur-dark);margin-bottom:.2rem;letter-spacing:.03em}
+
+/* PRODUCTS */
+.products{background:#fff;padding:5rem 2rem;border-top:1px solid var(--line)}
+.products-in{max-width:1200px;margin:0 auto}
+.products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem}
+.products-header .sec-p{max-width:300px}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.prod-card{padding:2rem 1.5rem;background:var(--pur-bg);border:1px solid var(--line);text-align:center;transition:all .3s}
+.prod-card:hover{border-color:var(--pur3);transform:translateY(-4px);box-shadow:0 12px 30px rgba(107,31,160,.08)}
+.prod-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.prod-title{font-size:.85rem;font-weight:700;color:var(--pur-dark);margin-bottom:.4rem;letter-spacing:.03em}
+.prod-desc{font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7}
+
+/* CTA BAND */
+.cta-band{background:linear-gradient(135deg,var(--pur-dark) 0%,var(--pur) 50%,#B05FD8 100%);padding:7rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'◆';position:absolute;font-size:35rem;color:rgba(255,255,255,.02);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;font-family:'Libre Baskerville',serif}
+.cta-in{max-width:650px;margin:0 auto;position:relative;z-index:2}
+.cta-tag{font-size:.6rem;font-weight:700;letter-spacing:.6em;text-transform:uppercase;color:var(--pur-light);display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem}
+.cta-tag::before,.cta-tag::after{content:'';width:50px;height:1px;background:var(--pur-light);opacity:.5}
+.cta-h{font-family:'Libre Baskerville',serif;font-size:clamp(2rem,5vw,4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.5rem}
+.cta-h em{font-style:italic;color:var(--pur-light)}
+.cta-p{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:3rem;max-width:450px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-contacts{margin-top:2.5rem;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;row-gap:1.5rem}
+.cta-contact-item{display:flex;flex-direction:column;gap:.3rem;text-align:center}
+.cta-contact-label{font-size:.55rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.cta-contact-val{font-size:1rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.cta-contact-val:hover{color:var(--pur-light)}
+
+/* FOOTER */
+footer{background:var(--pur-dark);padding:4rem 2rem 3rem}
+.foot-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;align-items:start}
+.foot-brand .fl{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:.15em;margin-bottom:.3rem}
+.foot-brand .fs{font-size:.5rem;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--pur-light);display:block;margin-bottom:1rem;opacity:.6}
+.foot-brand p{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.35);line-height:1.8;font-style:italic;max-width:220px}
+.foot-col h4{font-size:.55rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--pur3);margin-bottom:1.2rem;opacity:.8}
+.foot-col p,.foot-col a{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4);line-height:2.2;text-decoration:none;display:block;transition:color .2s;font-style:italic}
+.foot-col a:hover{color:#fff}
+.foot-col a.hl{color:var(--pur-light)}
+.foot-bot{max-width:1200px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-bot p{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18)}
+
+/* BACK TO TOP */
+.back-to-top{position:fixed;bottom:1.5rem;right:1.5rem;width:44px;height:44px;background:linear-gradient(135deg,var(--pur),var(--pur2));border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:700;opacity:0;visibility:hidden;transition:all .3s;box-shadow:0 4px 16px rgba(107,31,160,.4);text-decoration:none;color:#fff;font-size:1.1rem;border:none;cursor:pointer}
+.back-to-top.show{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(107,31,160,.5)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal-r.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal-l,.reveal-r{opacity:1;transform:none;transition:none}}
+
+/* ─── RESPONSIVE ─────────────────────────── */
+@media(max-width:1000px){
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .stats-in{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .about-visual{max-width:300px;margin:0 auto}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .srv-header{grid-template-columns:1fr}
+  .srv-header .sec-p{max-width:100%}
+}
+@media(max-width:640px){
+  .srv-grid{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .foot-in{grid-template-columns:1fr}
+  .hero-content{padding:7rem 1.5rem 5rem}
+  nav .nav-in{padding:1rem 1.5rem}
+  .hero-bottom-info{padding:0 1.5rem;gap:1.5rem;bottom:1.5rem;row-gap:.8rem}
+  .hero-info-item{min-width:calc(50% - .75rem)}
+  .hero-bottom-info .hero-info-item:last-child{min-width:100%}
+  .hero-cta .btn{flex:1 1 auto;text-align:center}
+  .products-header{flex-direction:column;align-items:flex-start}
+  .products-header .sec-p{max-width:100%;text-align:left}
+  .cta-btns .btn{flex:1 1 auto;text-align:center}
+  .stats-in{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .section{padding:5rem 1.5rem}
+  .foot-bot{flex-direction:column;align-items:center;text-align:center}
+  .about-badge-float{right:0;bottom:-0.5rem}
+}
+@media(max-width:400px){
+  .products-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Услуги</a>
+  <a href="#about" onclick="closeMobileMenu()">О нас</a>
+  <a href="#products" onclick="closeMobileMenu()">Продукция</a>
+  <a href="tel:89228008969" class="mm-cta">📞 Записаться</a>
+  <div class="mm-info">
+    <span>г. Бузулук, 2 микрорайон, д. 32</span>
+    <a href="tel:89228008969" class="mm-phone">8 (922) 800 89 69</a>
+    <a href="https://vk.com/salon_krasoti_estel" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:.5rem">ВКонтакте</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo">
+      <div class="logo-icon">💜</div>
+      <div class="logo-text">
+        <span class="logo-name">ESTEL&amp;CO</span>
+        <span class="logo-sub">Салон красоты</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#products">Продукция</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:89228008969" class="nav-btn">Записаться</a>
+      <button class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="hero-grid"></div>
+    <div class="deco-circle dc1"></div>
+    <div class="deco-circle dc2"></div>
+    <div class="deco-circle dc3"></div>
+    <div class="deco-circle dc4"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span class="hero-badge-text">Салон красоты · Бузулук · 2 микрорайон</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ht1">ESTEL</span>
+      <span class="ht2"><span class="ht-amp">&amp;</span>CO</span>
+    </h1>
+    <p class="hero-sub">
+      Салон красоты и официальный дилер продукции <strong>Estel Professional</strong>. Стрижки, окрашивание, уход за волосами и ногтевой сервис.
+    </p>
+    <div class="hero-services-chips">
+      <span class="chip">Волосы</span>
+      <span class="chip">Маникюр</span>
+      <span class="chip">Педикюр</span>
+      <span class="chip">Окрашивание</span>
+      <span class="chip">Продукция Estel</span>
+    </div>
+    <div class="hero-cta">
+      <a href="tel:89228008969" class="btn btn-white">📞 Записаться</a>
+      <a href="#services" class="btn btn-outline-white">Услуги и цены</a>
+    </div>
+  </div>
+
+  <div class="hero-bottom-info">
+    <div class="hero-info-item">
+      <span class="hero-info-label">Телефон</span>
+      <span class="hero-info-val">8 (922) 800 89 69</span>
+    </div>
+    <div class="hero-info-item">
+      <span class="hero-info-label">Адрес</span>
+      <span class="hero-info-val">2 микрорайон, д. 32</span>
+    </div>
+    <div class="hero-info-item">
+      <span class="hero-info-label">Режим работы</span>
+      <span class="hero-info-val">Пн–Вс · 9:00–20:00</span>
+    </div>
+    <div class="hero-info-item">
+      <span class="hero-info-label">ВКонтакте</span>
+      <a href="https://vk.com/salon_krasoti_estel" target="_blank" rel="noopener" class="hero-info-val" style="color:#fff;text-decoration:none">@salon_krasoti_estel</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="mq-track">
+    <div class="mq-item">Стрижка <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Окрашивание <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Маникюр <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Педикюр <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Уход за волосами <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Укладка <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Продукция Estel <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Бузулук <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Стрижка <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Окрашивание <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Маникюр <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Педикюр <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Уход за волосами <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Укладка <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Продукция Estel <span class="mq-gem">◆</span></div>
+    <div class="mq-item">Бузулук <span class="mq-gem">◆</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section srv-section" id="services">
+  <div class="sec-in">
+    <div class="srv-header">
+      <div class="reveal-l">
+        <div class="sec-label">Наши услуги</div>
+        <h2 class="sec-h">Всё для вашей<br><em>безупречной красоты</em></h2>
+      </div>
+      <p class="sec-p reveal-r">Профессиональные мастера и только сертифицированная продукция бренда Estel. Каждая процедура — это результат, которым вы будете гордиться.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal" style="transition-delay:.05s">
+        <span class="srv-icon">✂️</span>
+        <div class="srv-title">Стрижка и укладка</div>
+        <div class="srv-desc">Женские и мужские стрижки любой сложности. Вечерние укладки и прически для особых случаев.</div>
+        <div class="srv-badge">Haircut & Styling</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.1s">
+        <span class="srv-icon">🎨</span>
+        <div class="srv-title">Окрашивание</div>
+        <div class="srv-desc">Балаяж, шатуш, омбре, сплошное окрашивание. Используем только краски Estel Professional.</div>
+        <div class="srv-badge">Color & Highlights</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.15s">
+        <span class="srv-icon">💆</span>
+        <div class="srv-title">Уход за волосами</div>
+        <div class="srv-desc">Кератиновое выпрямление, восстановление, ботокс для волос. Ваши волосы скажут спасибо.</div>
+        <div class="srv-badge">Hair Care</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.2s">
+        <span class="srv-icon">💅</span>
+        <div class="srv-title">Маникюр и педикюр</div>
+        <div class="srv-desc">Классический, аппаратный, комбинированный. Гель-лак, покрытие, дизайн ногтей.</div>
+        <div class="srv-badge">Nail Service</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.25s">
+        <span class="srv-icon">👁️</span>
+        <div class="srv-title">Ресницы и брови</div>
+        <div class="srv-desc">Наращивание, ламинирование ресниц. Оформление и окрашивание бровей.</div>
+        <div class="srv-badge">Eyes & Brows</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.3s">
+        <span class="srv-icon">🛍️</span>
+        <div class="srv-title">Продукция Estel</div>
+        <div class="srv-desc">Официальный дилер Estel Professional. Шампуни, маски, краски для профессионального и домашнего ухода.</div>
+        <div class="srv-badge">Estel Products</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-in">
+    <div class="reveal" style="transition-delay:.05s">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Средний рейтинг<br>по отзывам</div>
+    </div>
+    <div class="reveal" style="transition-delay:.1s">
+      <div class="stat-num">Estel</div>
+      <div class="stat-label">Официальный<br>дилер продукции</div>
+    </div>
+    <div class="reveal" style="transition-delay:.15s">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Сертифицированные<br>материалы</div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Поводов стать<br>ещё красивее</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="sec-in">
+    <div class="about-grid">
+      <div class="about-visual reveal-l">
+        <div class="about-big-circle">
+          <span class="about-emoji-big">💜</span>
+        </div>
+        <div class="about-badge-float">
+          <div class="about-badge-num">Estel</div>
+          <div class="about-badge-text">Official Partner</div>
+        </div>
+      </div>
+      <div class="about-content reveal-r">
+        <div class="sec-label">Почему мы</div>
+        <h2 class="sec-h">ESTEL&amp;CO —<br>больше чем <em>салон</em></h2>
+        <ul class="about-list">
+          <li>
+            <span class="icon">✅</span>
+            <div><strong>Сертифицированные мастера</strong>Профессионалы, которые регулярно проходят обучение и следят за трендами индустрии красоты.</div>
+          </li>
+          <li>
+            <span class="icon">✅</span>
+            <div><strong>Официальная продукция Estel</strong>Используем и продаём только оригинальные сертифицированные материалы бренда Estel Professional.</div>
+          </li>
+          <li>
+            <span class="icon">✅</span>
+            <div><strong>Уютная атмосфера</strong>Мы создали пространство, где можно расслабиться и насладиться процессом преображения.</div>
+          </li>
+          <li>
+            <span class="icon">✅</span>
+            <div><strong>Доступные цены</strong>Профессиональное качество по честным ценам. Регулярные акции для постоянных клиентов.</div>
+          </li>
+          <li>
+            <span class="icon">✅</span>
+            <div><strong>Индивидуальный подход</strong>Каждый клиент — особенный. Подберём услугу и образ именно под вас.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<div class="products" id="products">
+  <div class="products-in">
+    <div class="products-header reveal">
+      <div>
+        <div class="sec-label">Продукция Estel</div>
+        <h2 class="sec-h" style="font-size:clamp(1.5rem,3vw,2.5rem)">Официальный дилер <em>Estel Professional</em></h2>
+      </div>
+      <p class="sec-p">В нашем салоне можно приобрести профессиональную косметику для домашнего ухода</p>
+    </div>
+    <div class="products-grid">
+      <div class="prod-card reveal" style="transition-delay:.05s">
+        <span class="prod-icon">🧴</span>
+        <div class="prod-title">Шампуни и маски</div>
+        <div class="prod-desc">Профессиональный уход за волосами дома</div>
+      </div>
+      <div class="prod-card reveal" style="transition-delay:.1s">
+        <span class="prod-icon">🎨</span>
+        <div class="prod-title">Краски для волос</div>
+        <div class="prod-desc">Весь ассортимент Estel Professional</div>
+      </div>
+      <div class="prod-card reveal" style="transition-delay:.15s">
+        <span class="prod-icon">✨</span>
+        <div class="prod-title">Стайлинг</div>
+        <div class="prod-desc">Лаки, муссы, термозащита для укладки</div>
+      </div>
+      <div class="prod-card reveal" style="transition-delay:.2s">
+        <span class="prod-icon">💊</span>
+        <div class="prod-title">Лечебный уход</div>
+        <div class="prod-desc">Ампулы и сыворотки для восстановления</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-in reveal">
+    <div class="cta-tag">Estel&amp;Co · Бузулук</div>
+    <h2 class="cta-h">Запишитесь<br>и станьте <em>ещё красивее</em></h2>
+    <p class="cta-p">Позвоните или напишите нам — и мы подберём удобное время для вашего визита.</p>
+    <div class="cta-btns">
+      <a href="tel:89228008969" class="btn btn-white">📞 Позвонить</a>
+      <a href="https://vk.com/salon_krasoti_estel" class="btn btn-outline-white" target="_blank" rel="noopener">ВКонтакте</a>
+    </div>
+    <div class="cta-contacts">
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">Телефон</span>
+        <a href="tel:89228008969" class="cta-contact-val">8 (922) 800 89 69</a>
+      </div>
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">Адрес</span>
+        <span class="cta-contact-val">2 микрорайон, д. 32</span>
+      </div>
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">Режим работы</span>
+        <span class="cta-contact-val">Пн–Вс 9:00–20:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-brand">
+      <div class="fl">ESTEL&amp;CO</div>
+      <span class="fs">Салон красоты · Бузулук</span>
+      <p>Красота — это не роскошь, это то, чего вы заслуживаете каждый день.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Услуги</h4>
+      <p>Стрижка и укладка</p>
+      <p>Окрашивание</p>
+      <p>Маникюр / Педикюр</p>
+      <p>Ресницы и брови</p>
+    </div>
+    <div class="foot-col">
+      <h4>Адрес</h4>
+      <p>г. Бузулук</p>
+      <p>2 микрорайон, д. 32</p>
+      <p>Пн–Вс: 9:00–20:00</p>
+    </div>
+    <div class="foot-col">
+      <h4>Контакты</h4>
+      <a href="tel:89228008969" class="hl">8 (922) 800 89 69</a>
+      <a href="https://vk.com/salon_krasoti_estel" target="_blank" rel="noopener">ВКонтакте</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© 2026 · ESTEL&amp;CO · Салон красоты · Бузулук</p>
+    <p>2 микрорайон, д. 32</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+<script>
+// Custom cursor — only on pointer devices
+if(window.matchMedia('(pointer:fine)').matches){
+  const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+  document.querySelectorAll('a,.btn,.srv-card,.prod-card,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='5px';cur.style.height='5px';ring.style.width='55px';ring.style.height='55px'});
+    el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='38px';ring.style.height='38px'});
+  });
+}
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('solid',scrollY>60);
+  document.getElementById('backToTop').classList.toggle('show',scrollY>400);
+},{ passive:true });
+
+// Hamburger / mobile menu
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+function closeMobileMenu(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+hamburger.addEventListener('click',()=>{
+  const isOpen=mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open',isOpen);
+  hamburger.setAttribute('aria-expanded',String(isOpen));
+  document.body.style.overflow=isOpen?'hidden':'';
+});
+// Close on ESC
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+
+// Back to top
+document.getElementById('backToTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Scroll reveal
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
